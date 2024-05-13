@@ -22,22 +22,22 @@ import re
 def summarize_text(text, num_sentences=3):
     # Remove special characters and convert text to lowercase
     clean_text = re.sub('[^a-zA-Z]', ' ', text).lower()
-    
+
     # Split the text into words
     words = clean_text.split()
-    
+
     # Calculate the frequency of each word
     word_freq = Counter(words)
-    
+
     # Sort the words based on their frequency in descending order
     sorted_words = sorted(word_freq, key=word_freq.get, reverse=True)
-    
+
     # Extract the top `num_sentences` most frequent words
     top_words = sorted_words[:num_sentences]
-    
+
     # Create the summary by joining the top words
     summary = ' '.join(top_words)
-    
+
     return summary
 
 #@st.cache_data
@@ -71,7 +71,7 @@ def main():
 
   st.markdown(subheader_template, unsafe_allow_html=True)
 
-  st.sidebar.image("nlp.jpg", use_column_width=True)
+  st.sidebar.image("france_tourisme.jpg", use_column_width=True)
 
   activity = ["Text Analysis", "Translation", "Sentiment Analysis", "About"]
   choice = st.sidebar.selectbox("Menu", activity)
@@ -123,7 +123,7 @@ def main():
         st.write("")
         st.write("")
         st.info("Advanced Features")
-            
+
         col3, col4 = st.columns(2)
 
         with col3:
@@ -140,7 +140,7 @@ def main():
             st.success("Summarize")
             summary = summarize_text(raw_text)
             st.success(summary)
-            
+
 
   if choice == "Translation":
     st.subheader("Translation")
@@ -156,15 +156,15 @@ def main():
       elif target_lang == "Spanish":
         target_lang = "es"
       elif target_lang == "French":
-        target_lang = "fr"      
+        target_lang = "fr"
       else:
-        target_lang = "it" 
-      
+        target_lang = "it"
+
       if st.button("Translate"):
         translator = GoogleTranslator(source='auto', target=target_lang)  # set source and target languages
         translated_text = translator.translate(raw_text)
         st.write(translated_text)
-      
+
 
   if choice == "Sentiment Analysis":
     st.subheader("Sentiment Analysis")
@@ -187,7 +187,7 @@ def main():
 
     st.markdown("""
     ### NLP Web App made with Streamlit
-    
+
     for info:
     - [streamlit](https://streamlit.io)
     """)
