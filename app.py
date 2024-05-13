@@ -1,6 +1,6 @@
 # Core Pkgs
 import streamlit as st
-st.set_page_config(page_title="NLP Web App", page_icon="👍", layout="centered", initial_sidebar_state="auto")
+st.set_page_config(page_title="Itinéraire Web App", page_icon="👍", layout="centered", initial_sidebar_state="auto")
 
 # Viz Pkgs
 import matplotlib.pyplot as plt
@@ -53,11 +53,11 @@ def text_analyzer(text):
 
 
 def main():
-  """NLP web app with Streamlit"""
+  """Itinéraire web app avec Streamlit"""
 
   title_template = """
   <div style="background-color:blue; padding:8px;">
-  <h1 style="color:cyan">NLP Web App</h1>
+  <h1 style="color:cyan">Itinéraire Web App</h1>
   </div>
   """
 
